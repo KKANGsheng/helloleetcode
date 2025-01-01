@@ -3,16 +3,13 @@ class Solution {
         HashMap<Integer,Integer> num=new HashMap<Integer,Integer>();
 
         for(int i=0;i<nums.length;i++){
-            int complement =target-nums[i];
-
-            if(num.containsKey(complement)){
-                return new int[]{num.get(complement),i};
+            if(num.containsKey(target-nums[i])){
+                return new int[]{num.get(target-nums[i]),[i]};
             }
 
             num.put(nums[i],i);
-
-        }
-    return new int[] {};
     }
+
+    return new int[]{};
 
 }
