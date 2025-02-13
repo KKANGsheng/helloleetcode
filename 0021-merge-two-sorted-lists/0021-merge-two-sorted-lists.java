@@ -10,11 +10,11 @@
  */
 class Solution {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
-        ListNode preNode= new ListNode(0);
-        ListNode last= preNode;
+        ListNode preNode =new ListNode(0);
+        ListNode last =preNode;
 
-        while(list1 !=null && list2!=null){
-            if(list1.val<list2.val){
+        while(list1!=null && list2!=null){
+            if(list1.val <list2.val){
                 last.next=list1;
                 list1=list1.next;
             }else{
@@ -23,8 +23,8 @@ class Solution {
             }
             last=last.next;
         }
-        last.next = list1 ==null ? list2:list1;
-    return preNode.next;
+        last.next= list1 ==null ?list2 :list1;
+        return preNode.next;
  }
 
 }
