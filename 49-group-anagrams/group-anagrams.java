@@ -1,30 +1,17 @@
 class Solution {
     public List<List<String>> groupAnagrams(String[] strs) {
-    Map<String,List<String>>map=new HashMap<>();
+    Map<String,List<String>> map = new HashMap<>();
 
-    for(String s:strs){
-        String sortWord=performSort(s);
-        map.putIfAbsent(sortWord,new ArrayList<>());
-        map.get(sortWord).add(s);
-    }
+    for(String str:strs){
+        char []characters= str.toCharArray();
+        Arrays.sort(characters);
+        String key = new String(characters);
 
-    return convertoList(map);
-}
-
-    public List<List<String>> convertoList(Map<String,List<String>>map){
-        List<List<String>> list=new ArrayList<>();
-
-        for(List<String>value:map.values()){
-            list.add(value);
+        if(!map.containsKey(key)){
+            map.put(key,new ArrayList<>());
         }
-        return list;
-    }
-
-
-
-    public String performSort(String s){
-        char[] c=s.toCharArray();
-        Arrays.sort(c);
-        return new String(c);
+            map.get(key).add(str);
+        }
+            return new ArrayList<>(map.values());
     }
 }
