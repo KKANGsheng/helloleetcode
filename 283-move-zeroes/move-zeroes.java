@@ -1,19 +1,17 @@
 class Solution {
     public void moveZeroes(int[] nums) {
-        int j=0;
+        int start =0;
 
         for(int i=0;i<nums.length;i++){
             if(nums[i]!=0){
-                nums[j]=nums[i];
-                System.out.println("nums[j] "+nums[j]);
-                j++;
+                nums[start]=nums[i];
+                start++;
             }
         }
 
-        for(int k=j;k<nums.length;k++){
-            nums[k]=0;
+        for(int j=start;j<nums.length;j++){
+            nums[j]=0;
         }
-
 
     }
 }
