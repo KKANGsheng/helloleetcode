@@ -1,20 +1,15 @@
 class Solution {
     public int firstUniqChar(String s) {
-        int [] count =new int[26];
-
-//      store all the askii count
-        for(Character c:s.toCharArray()){
-            count[c-'a']++;
-        }
-
-        for(int i=0;i<s.length();i++){
-            if(count[s.charAt(i)-'a'] ==1){
-                return i;
-            }
-        }
-
-        return -1;
-
-
+    HashMap<Character,Integer> hashMap = new HashMap<>();
+    for (int i=0;i<s.length();i++) {
+        hashMap.put(s.charAt(i),hashMap.getOrDefault(s.charAt(i),0)+1);
     }
+
+    for (int j=0;j<s.length();j++) {
+        if (hashMap.get(s.charAt(j))==1) {
+            return j;
+        }
+    }
+    return -1;
+  }
 }
