@@ -10,8 +10,8 @@ class Solution {
         }
         for(int num:hashSet) {
             if(!hashSet.contains(num-1)) {
-                int currentLength = 0;
-                while(hashSet.contains(num)) {
+                int currentLength = 1;
+                while(hashSet.contains(num+1)) {
                     num++;
                     currentLength++;
                 }
