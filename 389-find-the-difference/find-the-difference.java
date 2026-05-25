@@ -1,20 +1,20 @@
 class Solution {
     public char findTheDifference(String s, String t) {
-    int []characters = new int[26];
+        int[] result = new int[26];
 
-    for(char b:t.toCharArray()){
-        characters[b-'a']++;
-    }
-
-    for(char c:s.toCharArray()){
-        characters[c-'a']--;
-    }
-
-    for(int i=0;i<characters.length;i++){
-        if(characters[i]!=0){
-            return (char)('a'+i);
+        for(int i=0;i<t.length();i++) {
+            result[t.charAt(i)-'a']++;
         }
-    }
-    return ' ';
- }
+
+        for (int i=0;i<s.length();i++) {
+            result[s.charAt(i)-'a']--;
+        }
+
+        for (int i=0;i<result.length;i++) {
+            if(result[i]>0) {
+                return (char)(i+'a');
+            }
+        }
+        return ' ';
+  }  
 }
