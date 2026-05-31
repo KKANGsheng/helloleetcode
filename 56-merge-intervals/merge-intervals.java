@@ -4,11 +4,11 @@ class Solution {
             return intervals;
         }
         Arrays.sort(intervals,(a,b)->Integer.compare(a[0],b[0]));
-        List<int[]> output_arr = new ArrayList<>();
+        List<int[]> arrayList = new ArrayList<>();
         int [] current_interval = intervals[0];
-        output_arr.add(current_interval);
+        arrayList.add(current_interval);
+        for (int []interval:intervals) {
 
-        for (int[] interval:intervals) {
             int current_start = current_interval[0];
             int current_end   = current_interval[1];
             int next_start    = interval[0];
@@ -16,11 +16,12 @@ class Solution {
 
             if(current_end>=next_start) {
                 current_interval[1] = Math.max(current_end,next_end);
-            } else {
-                current_interval = interval;
-                output_arr.add(current_interval);
+            }else{
+                current_interval= interval;
+                arrayList.add(current_interval);
             }
         }
-        return output_arr.toArray(new int[output_arr.size()][]);
-    }
+
+        return arrayList.toArray(new int[arrayList.size()][]);
+ }
 }
